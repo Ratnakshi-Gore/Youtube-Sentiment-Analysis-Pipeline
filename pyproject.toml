@@ -1,0 +1,15 @@
+[build-system]      # This section tells pip how to build your project when someone installs it.
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rg_youtube"
+version = "0.0.0"
+authors = [{name = "Ratnakshi"}]
+requires-python = ">=3.10"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
