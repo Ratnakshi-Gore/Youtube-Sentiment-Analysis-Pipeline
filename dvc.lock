@@ -16,3 +16,57 @@ stages:
       md5: e13bcce40396cd334c8a7a334868166a.dir
       size: 6919701
       nfiles: 2
+  data_preprocessing:
+    cmd: python src/data/data_preprocessing.py
+    deps:
+    - path: data/raw/test.csv
+      hash: md5
+      md5: ea97ba82a4a25627bf4ffb52572484ea
+      size: 1348612
+    - path: data/raw/train.csv
+      hash: md5
+      md5: 1bd422dd6d135bced1d6c64a3e84a45d
+      size: 5571089
+    - path: src/data/data_preprocessing.py
+      hash: md5
+      md5: 5a7aaed764a4e910dcbb1afae8caa9c6
+      size: 3791
+    outs:
+    - path: data/interim
+      hash: md5
+      md5: ba42408e7bd1e85685474d6a349ae57e.dir
+      size: 5134850
+      nfiles: 2
+  model_building:
+    cmd: python src/model/model_building.py
+    deps:
+    - path: data/interim/train_processed.csv
+      hash: md5
+      md5: 35027dfda8274bd9356544f2ff358aa4
+      size: 4134324
+    - path: src/model/model_building.py
+      hash: md5
+      md5: 0061a04d0caded20561750388dedfe14
+      size: 5907
+    params:
+      params.yaml:
+        model_building.C: 10
+        model_building.class_weight: balanced
+        model_building.max_df: 0.9
+        model_building.max_features: 1000
+        model_building.max_iter: 2000
+        model_building.min_df: 5
+        model_building.ngram_range:
+        - 1
+        - 2
+        model_building.penalty: l2
+        model_building.solver: lbfgs
+    outs:
+    - path: bow_vectorizer.pkl
+      hash: md5
+      md5: b93cefa4b22d81a78a06b1a903642386
+      size: 28403
+    - path: logistic_regression_model.pkl
+      hash: md5
+      md5: 67d2ff1251caf91bff87c1a80a5be524
+      size: 24730

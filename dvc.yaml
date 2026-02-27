@@ -15,4 +15,24 @@ stages:
     - data/raw/test.csv
     - src/data/data_preprocessing.py
     outs:
-    - data/raw
+    - data/interim
+
+
+  model_building:
+    cmd: python src/model/model_building.py
+    deps:
+    - data/interim/train_processed.csv
+    - src/model/model_building.py
+    params:
+    - model_building.max_features
+    - model_building.ngram_range
+    - model_building.min_df
+    - model_building.max_df
+    - model_building.C
+    - model_building.penalty
+    - model_building.solver
+    - model_building.class_weight
+    - model_building.max_iter
+    outs:
+    - logistic_regression_model.pkl
+    - bow_vectorizer.pkl
