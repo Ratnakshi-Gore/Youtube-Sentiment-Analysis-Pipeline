@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
@@ -112,3 +111,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

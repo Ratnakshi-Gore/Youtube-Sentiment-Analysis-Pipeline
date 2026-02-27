@@ -1,0 +1,17 @@
+data_ingestion:
+  test_size: 0.20
+  random_state: 42
+
+model_building:
+  vectorizer_type: "CountVectorizer"
+  ngram_range: [1, 2]
+  max_features: 1000
+  min_df: 5
+  max_df: 0.9
+ 
+  model_type: "LogisticRegression"
+  C: 10
+  penalty: "l2"
+  solver: "lbfgs"
+  class_weight: "balanced"
+  max_iter: 2000
