@@ -70,3 +70,31 @@ stages:
       hash: md5
       md5: 67d2ff1251caf91bff87c1a80a5be524
       size: 24730
+  model_evaluation:
+    cmd: python src/model/model_evaluation.py
+    deps:
+    - path: bow_vectorizer.pkl
+      hash: md5
+      md5: b93cefa4b22d81a78a06b1a903642386
+      size: 28403
+    - path: data/interim/test_processed.csv
+      hash: md5
+      md5: 4f30375397ec89fead1745ee6d70f201
+      size: 1000526
+    - path: data/interim/train_processed.csv
+      hash: md5
+      md5: 35027dfda8274bd9356544f2ff358aa4
+      size: 4134324
+    - path: logistic_regression_model.pkl
+      hash: md5
+      md5: 67d2ff1251caf91bff87c1a80a5be524
+      size: 24730
+    - path: src/model/model_evaluation.py
+      hash: md5
+      md5: 4983e13bc42bb99a35c7e9a2e424c243
+      size: 9870
+    outs:
+    - path: experiment_info.json
+      hash: md5
+      md5: 26e780a39688aab8c724cbac96346c2e
+      size: 102
