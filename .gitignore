@@ -208,3 +208,4 @@ __marimo__/
 /logistic_regression_model.pkl
 /bow_vectorizer.pkl
 /experiment_info.json
+.png
